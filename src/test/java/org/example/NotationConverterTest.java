@@ -93,6 +93,13 @@ class NotationConverterTest {
         Assertions.assertEquals("The order of the numerals is violated.",
                 thrown.getMessage());
     }
+    @Test
+    public void shouldThrowExceptionCaseTen() throws InvalidValueException {
+        Throwable thrown = Assertions.assertThrowsExactly(
+                InvalidValueException.class,()->converter.toArabic(null));
+        Assertions.assertEquals("String must contain only valid roman numerals [I,V,X,L,C,D,M].",
+                thrown.getMessage());
+    }
 
 
 
