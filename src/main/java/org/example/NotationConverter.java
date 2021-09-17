@@ -28,6 +28,8 @@ public class NotationConverter {
         return map.get(key);
     }
     private List<Integer> convertToIntList(String number) throws InvalidValueException {
+        if(number==null) throw
+                new InvalidValueException("String must contain only valid roman numerals [I,V,X,L,C,D,M].");
         String [] s = number.split("");
         int value = getValue(s[0]);
         int next = 0;
@@ -70,8 +72,6 @@ public class NotationConverter {
         return res;
     }
     public int toArabic(String romanNotation) throws InvalidValueException {
-        if(romanNotation==null) throw
-                new InvalidValueException("String must contain only valid roman numerals [I,V,X,L,C,D,M].");
         return getResult(convertToIntList(romanNotation));
     }
 }

@@ -94,6 +94,11 @@ class NotationConverterTest {
                 thrown.getMessage());
     }
     @Test
+    public void shouldBe2143() throws Exception {
+        int res = converter.toArabic("MMCXLIII");
+        Assertions.assertEquals(2143,res);
+    }
+    @Test
     public void shouldThrowExceptionCaseTen() throws InvalidValueException {
         Throwable thrown = Assertions.assertThrowsExactly(
                 InvalidValueException.class,()->converter.toArabic(null));
